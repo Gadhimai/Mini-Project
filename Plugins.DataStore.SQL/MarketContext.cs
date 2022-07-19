@@ -20,6 +20,20 @@ namespace Plugins.DataStore.SQL
                .HasMany(c => c.Products)
                .WithOne(p => p.Category)
                .HasForeignKey(p => p.CategoryId);
+
+            //seeding some data
+            modelBuilder.Entity<Category>().HasData(
+                    new Category { CategoryId = 1, Name = "Beverage", Description = "Beverage" },
+                    new Category { CategoryId = 2, Name = "Bakery", Description = "Bakery" },
+                    new Category { CategoryId = 3, Name = "Meat", Description = "Meat" }
+                );
+
+            modelBuilder.Entity<Product>().HasData(
+                    new Product { ProductId = 1, CategoryId = 1, Name = "Iced Tea", Quantity = 100, Price = 2000 },
+                    new Product { ProductId = 2, CategoryId = 1, Name = "Ginger Ale", Quantity = 200, Price = 3000 },
+                    new Product { ProductId = 3, CategoryId = 2, Name = "Bread", Quantity = 50, Price = 800 },
+                    new Product { ProductId = 4, CategoryId = 2, Name = "Pastry", Quantity = 10, Price = 900 }
+                );
         }
     }
 }
