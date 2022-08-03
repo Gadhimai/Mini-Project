@@ -1,8 +1,9 @@
 ﻿@page "/categories"
+@attribute [Authorize(Policy = "AdminOnly")]
 
 @inject NavigationManager NavigationManager
 @inject UseCases.IViewCategoriesUseCase ViewCategoryUseCase
-@inject UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase 
+@inject UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase
 
 <h3>Manage Categories</h3>
 
@@ -31,7 +32,7 @@
         </tbody>
     </table>
 }
-<br/>
+<br />
 <button type="button" @onclick="OnClickAddCategory" class="btn btn-primary">Add Category</button>
 
 @code {

@@ -1,9 +1,10 @@
 ﻿@page "/products"
+@attribute [Authorize(Policy = "AdminOnly")]
 
 @inject NavigationManager NavigationManager
 @inject UseCases.IViewProductsUseCase ViewProductsUseCase
 @inject UseCases.IGetCategoryByIdUseCase GetCategoryByIdUseCase
-@inject UseCases.IDeleteProductUseCase DeleteProductUseCase  
+@inject UseCases.IDeleteProductUseCase DeleteProductUseCase
 
 <h3>Products</h3>
 <br />
